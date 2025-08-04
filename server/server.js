@@ -1,7 +1,13 @@
 import express from "express";
+import cors from "cors";
 
 // creates our express application 
 const app = express();
+
+// Use the cors middleware
+// This tells Express to add the right headers to its responses,
+// allowing our frontend to connect.
+app.use(cors());
 
 //defines the port we want our server to run on
 const port = 3000;
