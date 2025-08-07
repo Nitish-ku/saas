@@ -9,6 +9,9 @@ const app = express();
 // allowing our frontend to connect.
 app.use(cors());
 
+//parses incoming data coming from request(frontend)
+app.use(express.json());
+
 //defines the port we want our server to run on
 const port = 3000;
 
@@ -19,6 +22,19 @@ const port = 3000;
 app.get("/", (req, res) => {
     res.send("Hello from the server");
 })
+
+app.post("/api/v1/generate-atricle", (req, res) => {
+    //get the topic from the request body that the user sent
+    const {topic} = req.body;
+
+    //for now we'll just log it into the console to see if we recieved it
+    console.log("Topic: ", topic);
+
+    //send back a fake hardcoded response
+    res.status(200).json({
+        article: `this is a fantastic ai-generated article about ${topic}. It has many insightful paragraphs and brilliant conclusion`
+    });
+});
 
 
 // this starts the server and makes it listen for incoming requests on our port
