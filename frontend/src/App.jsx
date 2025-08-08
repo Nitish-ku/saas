@@ -13,7 +13,7 @@ const App = () => {
 
   // this function is called when the form is submitted
   const handleGenerateArticle = (e) => {
-    //prevents the browser from reading the page, which is the default form behaviour 
+    //prevents the browser from reloading the page, which is the default form behaviour 
     e.preventDefault();
 
     // show a loading message
@@ -23,9 +23,9 @@ const App = () => {
     setArticle("");
 
     // the core API call
-    fetch("http://localhost:3000/api/vi/generate-article", {
+    fetch("http://localhost:3000/api/v1/generate-article", {
       method: "POST", // we are sending data so we use POST
-      header:{
+      headers:{
         "content-type": "application/json", // we're sending data in JSON format
       },
 
@@ -46,7 +46,7 @@ const App = () => {
   };
 
   return (
-    <div style={{padding:'20px', fontFamily:'Arial, sans-serif'}}>
+    <div style={{padding:'', fontFamily:'Arial, sans-serif', backgroundColor:'darkblue'}}>
       <h1> AI Article Generator</h1>
       <p>
         Enter a topic and we'll use the power of AI to write for you
@@ -59,7 +59,7 @@ const App = () => {
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder='e.g., The future of Renewable energy'
-          style={{padding:'10px', width:'300px', marginRight:'10px'}}
+          style={{padding:'10px', width:'300px', marginRight:'10px', backgroundColor:'red'}}
           />
           <button type='submit' disabled={loading} style={{padding:'10px'}}>
             {loading ? 'Generating...' : 'Generate Article'}
@@ -69,7 +69,7 @@ const App = () => {
       {/* Display the generated article here */}
       {article && (
         <div style={{marginTop:'20px', padding:'15px',
-          border:'1px solid #ccc', backgroundColor:'#f9f9f9'
+          border:'1px solid #ccc', backgroundColor:'green'
         }}>
           <h2> Generate Article </h2>
           <p> {article} </p>
