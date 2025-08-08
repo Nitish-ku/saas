@@ -1,5 +1,5 @@
 import express from "express";
-import { generateArticleController } from "../controllers/controller";
+import { generateArticleController } from "../controllers/controller.js";
 
 
 // create a new router object from express

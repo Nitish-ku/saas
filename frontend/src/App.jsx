@@ -46,7 +46,7 @@ const App = () => {
   };
 
   return (
-    <div style={{padding:'', fontFamily:'Arial, sans-serif', backgroundColor:'darkblue'}}>
+    <div style={{padding:'20px', fontFamily:'Arial, sans-serif', backgroundColor:'darkblue'}}>
       <h1> AI Article Generator</h1>
       <p>
         Enter a topic and we'll use the power of AI to write for you
